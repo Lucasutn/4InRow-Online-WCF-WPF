@@ -1,0 +1,89 @@
+﻿<UserControl x:Class="MVVM.Views.OpcionesView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MVVM.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="600"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+             Background="{DynamicResource MaterialDesignPaper}"
+             TextElement.FontWeight="Medium"
+             TextElement.FontSize="20"
+             FontFamily="{materialDesign:MaterialDesignFont}">
+
+    <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect ExpandIn}">
+        <Border BorderThickness="40">
+            <StackPanel VerticalAlignment="Center" Width="320">
+
+                <!-- Volver a Inicio -->
+                <Button
+                Style="{StaticResource MaterialDesignFlatButton}"
+                ToolTip="MaterialDesignFlatButton"
+                Content="Volver"
+                HorizontalAlignment="Left"
+                FontSize="20"
+                Height="40"
+                Margin="0 10"
+                Command="{Binding VolverCommand}"/>
+
+                <!-- Nombre -->
+                <TextBox x:Name="NameTextBox" materialDesign:TransitionAssist.DisableTransitions="True"
+                     materialDesign:HintAssist.Hint="Nombre" Text="{Binding NombreJugador}" TextAlignment="Center"
+                     Margin="0 10"/>
+
+                <!-- Selector de Ficha -->
+                <StackPanel Orientation="Horizontal">
+                    <ComboBox
+                    Style="{StaticResource MaterialDesignFilledComboBox}"
+                    x:Name="FichaComboBox"
+                    materialDesign:HintAssist.Hint="Ficha"
+                    Width="200"
+                    Margin="0 10"
+                    ItemsSource="{Binding ColeccionFichas}"
+                    SelectedItem="{Binding FichaSeleccionada}"/>
+
+                    <!-- Ficha Actual -->
+                    <materialDesign:PackIcon 
+                    Kind="{Binding FichaKind}"
+                    Foreground="{Binding Colores.ColorJ1}"
+                    VerticalAlignment="Center"
+                    Width="50"
+                    Height="50"
+                    Margin="40 0 0 0"/>
+                </StackPanel>
+
+
+                <!-- Selector de Colores -->
+                <StackPanel Orientation="Horizontal">
+                    <ComboBox
+                    Style="{StaticResource MaterialDesignFilledComboBox}"
+                    x:Name="ColorComboBox"
+                    materialDesign:HintAssist.Hint="Colores"
+                    Width="200"
+                    Margin="0 10"
+                    ItemsSource="{Binding ColeccionColores}"
+                    SelectedItem="{Binding ColoresSeleccionados}"/>
+
+                    <!-- Colores Actuales -->
+                    <materialDesign:PackIcon
+                    Kind="Circle"
+                    Foreground="{Binding Colores.ColorJ1}"
+                    VerticalAlignment="Center"
+                    Width="50"
+                    Height="50"
+                    Margin="10"/>
+
+                    <materialDesign:PackIcon 
+                    Kind="Circle"
+                    Foreground="{Binding Colores.ColorJ2}"
+                    VerticalAlignment="Center"
+                    Width="50"
+                    Height="50"/>
+                </StackPanel>
+
+            </StackPanel>
+        </Border>
+    </materialDesign:TransitioningContent>
+</UserControl>

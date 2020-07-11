@@ -1,0 +1,116 @@
+﻿<UserControl x:Class="MVVM.Views.GameView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MVVM.Views"
+             xmlns:vm="clr-namespace:MVVM.ViewModels"
+             mc:Ignorable="d"
+             d:DesignHeight="700" d:DesignWidth="600"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" 
+             TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+             Background="{DynamicResource MaterialDesignPaper}"
+             TextElement.FontWeight="Medium"
+             TextElement.FontSize="14"
+             FontFamily="{materialDesign:MaterialDesignFont}">
+
+    <materialDesign:DialogHost x:Name="Dialog">
+        
+        <!-- Contenido del view -->
+        <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect ExpandIn}">
+            <Border BorderThickness="40">
+                <StackPanel VerticalAlignment="Center">
+                
+                    <Grid x:Name="PlayGrid" 
+                          Background="{DynamicResource MaterialDesignDarkSeparatorBackground}"
+                          MouseDown="MarkCell">
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition x:Name="Col_0" Width="*"/>
+                            <ColumnDefinition x:Name="Col_1" Width="*"/>
+                            <ColumnDefinition x:Name="Col_2" Width="*"/>
+                            <ColumnDefinition x:Name="Col_3" Width="*"/>
+                            <ColumnDefinition x:Name="Col_4" Width="*"/>
+                            <ColumnDefinition x:Name="Col_5" Width="*"/>
+                            <ColumnDefinition x:Name="Col_6" Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="80" />
+                            <RowDefinition Height="80" />
+                            <RowDefinition Height="80" />
+                            <RowDefinition Height="80" />
+                            <RowDefinition Height="80" />
+                            <RowDefinition Height="80" />
+                        </Grid.RowDefinitions>
+
+                    </Grid>
+
+                    <Grid VerticalAlignment="Bottom"
+                          Margin="0 20 0 0"
+                          DataContext="{Binding Opciones}">
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <materialDesign:Card
+                            x:Name="LeftCard"
+                            Background="{DynamicResource MaterialDesignDarkSeparatorBackground}"
+                            Foreground="{DynamicResource MaterialDesignDarkForeground}"
+                            Padding="10"
+                            Width="200"
+                            HorizontalAlignment="Left"
+                            Grid.Column="0">
+
+                            <StackPanel Orientation="Horizontal"
+                                        HorizontalAlignment="Center">
+
+                                <TextBlock x:Name="BottomTextLeft" FontSize="20"
+                                           VerticalAlignment="Center"
+                                           Margin="0 0 20 0" 
+                                           Text="{Binding NombreJugador}"/>
+
+                                <materialDesign:PackIcon Name="BottomLeft" 
+                                                         Kind="{Binding DibujoFicha}" 
+                                                         VerticalAlignment="Center"
+                                                         Width="40"
+                                                         Height="40"
+                                                         Foreground="{Binding ColoresFicha.ColorJ1}"/>
+                            </StackPanel>
+                        </materialDesign:Card>
+
+
+                        <materialDesign:Card
+                            x:Name="RightCard"
+                            Background="{DynamicResource MaterialDesignDarkSeparatorBackground}"
+                            Foreground="{DynamicResource MaterialDesignDarkForeground}"
+                            Padding="10"
+                            Width="200"
+                            HorizontalAlignment="Right"
+                            Grid.Column="1">
+                        
+                            <StackPanel Orientation="Horizontal"
+                                        HorizontalAlignment="Center">
+                            
+                                <TextBlock x:Name="BottomTextRight" FontSize="20"
+                                           VerticalAlignment="Center"
+                                           Margin="0 0 20 0">
+                                Adversario
+                                </TextBlock>
+                                <materialDesign:PackIcon Name="BottomRight" 
+                                                         Kind="{Binding DibujoFicha}" 
+                                                         VerticalAlignment="Center"
+                                                         Width="40"
+                                                         Height="40"
+                                                         Foreground="{Binding ColoresFicha.ColorJ2}"/>
+                            </StackPanel>
+                        </materialDesign:Card>
+
+                    </Grid>
+                </StackPanel>
+            </Border>
+        </materialDesign:TransitioningContent>
+    </materialDesign:DialogHost>
+</UserControl>
