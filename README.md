@@ -1,8 +1,8 @@
-###Contributors :
+ ### Contributors :
 
-*[Garavaglia, Mauricio](https://github.com/maruxan) - WPF
-*[Frias, Lucas Hernan](https://github.com/Lucasutn) - WCF 
-*[Bruzzo, Fernando](https://github.com/Feerbru) - Especialista en coaching.
+* [Garavaglia, Mauricio](https://github.com/maruxan) - WPF.
+* [Frias, Lucas Hernan](https://github.com/Lucasutn) - WCF.
+* [Bruzzo, Fernando](https://github.com/Feerbru) - Especialista en coaching.
 
 
 
